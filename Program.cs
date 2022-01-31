@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace Learn
 {
@@ -12,16 +12,18 @@ namespace Learn
             //Catching the error cause by invalid format
             try
             {
-                float result;
+                double result;
                 Console.WriteLine("Enter a number: ");
-                float a = float.Parse(Console.ReadLine()); //Get user input 
+                double a = Convert.ToDouble(Console.ReadLine()); //Get user input 
                 Console.WriteLine("Enter another number: ");
-                float b = float.Parse(Console.ReadLine()); // Get user input
+                double b = Convert.ToDouble(Console.ReadLine()); // Get user input
                 Console.WriteLine("Enter an option: "); // Get user input
                 Console.WriteLine("\t+ : Add");
                 Console.WriteLine("\t-: Subtract/Minus");
                 Console.WriteLine("\t* : Times/Multiply");
                 Console.WriteLine("\t/ : Divide");
+                Console.WriteLine("\t^ : Power");
+                Console.WriteLine("\tExtra: hypo : Hypotenuse");
 
                 switch (Console.ReadLine()) // List of cases where the users can use
                 {
@@ -49,8 +51,17 @@ namespace Learn
                             Console.WriteLine("Result: " + result); //For dividing
                         }
                         break;
+                    case "^":
+                        result = Math.Pow(a, b);
+                        Console.WriteLine("Result: " + result); //For multiplying
+                        break;
+                    case "hypo":
+                        result = Math.Sqrt((a * a) + (b * b));
+                        Console.WriteLine("Result: " + result); //For multiplying
+                        break;
+
                     default:
-                        Console.WriteLine("Please enter +, -, / or *"); // Catching the invalid format for option
+                        Console.WriteLine("Please enter +, -, /, *, sqrt"); // Catching the invalid format for option
                         break;
                 }
             }
